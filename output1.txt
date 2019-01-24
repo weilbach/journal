@@ -1,0 +1,5 @@
+clean.csv	Arber,22,Male,48005
+clean.csv	Stephanie,17,Female,48006
+clean.csv	Lisa,25,Female,48006
+clean.csv	John,34,Male,48085
+clean.csv	Justin,21,Male,48085
