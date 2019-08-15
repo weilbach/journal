@@ -5,3 +5,4 @@ output1
 hadoop-streaming-2.7.2.jar
 bin
 env
+__pycache__
