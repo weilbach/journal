@@ -2,34 +2,20 @@ import sys
 import math
 import os
 from dictionary import Journal
+from queries import names
 
+
+#this is serving as the main file 
 dictionary = {}
 
 
 summer15 = Journal()
-F = open('input/summer15.txt', 'r')
-title = ''
-for line in F:
-    line = line.strip('\n')
-    is_date = False
-    
-    if len(line) < 20:
-        title = line
-        summer15.dates[title] = {}
-        is_date = True
-    else:
-        words = line.split(' ')
-        for word in words:
-            word = word.lower()
-            if word in summer15.dates[title]:
-                summer15.dates[title][word] += 1
-            else:
-                summer15.dates[title][word] = 1
 
+summer15.assemble_dictionary('summer15.txt')
 
-for key in summer15.dates:
-    for word in summer15.dates[key]:
-        print(summer15.dates[key][word])
+summer15.assemble_names()
+
+names(summer15)
 
 #this seems to correctly dictionaryize everything 
      
