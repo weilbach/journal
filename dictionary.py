@@ -1,5 +1,6 @@
 import sys
 import os
+import re
 
 
 class Journal():
@@ -48,25 +49,18 @@ class Journal():
         filepath = 'input/' + filename
         F = open(filepath, 'r')
         title = ''
-        count = 0
         for line in F:
             line = line.strip('\n')
             if len(line) < 20:
                 title = line
                 self.fragments[title] = []
             else:
-                words = line.split('then')
-                print(words)
-                for word in words:
-                    to_append = word.split('.')
-                    print('to appends')
-                    print(to_append)
-                    self.fragments[title].append(to_append)
-            if count == 3:
-                break
-            count += 1
+                #I'd like to thank Jacob Kilby for this line of code
+                words = re.split(r'\.|\bthen\b', line)
+                self.fragments[title] = words
         
-        # print(self.fragments['6/29'])
+        #these are just checks
+        # print(self.fragments['6/23'])
         # print(self.fragments['6/30'])
 
 

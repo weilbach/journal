@@ -21,7 +21,7 @@ summer18.assemble_fragments('summer2018.txt')
 # summer18.assemble_names()
 
 # names(summer15)
-foods(summer18)
+# foods(summer18)
 # weed(summer18)
 
 #this seems to correctly dictionaryize everything 
