@@ -10,8 +10,12 @@ class Journal():
         self.dates = {} #a more comprehensive dictionary of all words for each day
         self.common_names = set() #just holds all names seen in a journal
         self.fragments = {} #will hold sentence fragments
+        self.name = ''
+
+        #the init here should initialize the name better and not be done in the dictionary part
     
     def assemble_dictionary(self, filename):
+        self.name = filename
         filepath = 'input/' + filename
         F = open(filepath, 'r')
         title = ''
