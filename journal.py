@@ -5,6 +5,7 @@ from dictionary import Journal
 from queries import names, foods
 from explicit import weed
 from checkpoints import load_checkpoint, save_checkpoint
+from dayrank import create_csv
 
 
 #this is serving as the main file 
@@ -23,10 +24,12 @@ summer18.assemble_fragments('summer2018.txt')
 # summer15.assemble_names()
 # summer18.assemble_names()
 
+create_csv(summer18.fragments, summer18.name)
+
 # names(summer15)
 # foods(summer18)
 # weed(summer18)
-save_checkpoint(summer18.fragments, summer18.dates, summer18.common_names, summer18.name)
+# save_checkpoint(summer18.fragments, summer18.dates, summer18.common_names, summer18.name)
 
 #this seems to correctly dictionaryize everything 
      
