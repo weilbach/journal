@@ -1,2 +1,2 @@
-# journal
-A tool to take statistics on your personal life as documented in a diary/journal format
+# Analysis of Written works
+This is a tool to take statistics on various pieces of written work. Eventually this project should be able to take statistics on things such as journals, books, diaries, tweets etc. It will really shine when it is given an entire piece of literature. For example, given a book it will be able to show stats on characters and their activities. Similarly, if you have a journal you can input your journal to take stats on yourself. Currently, a feature is under development wherein machine learning is used to predict whether or not an activity completed in the written work is enjoyable, negative, or neutral.
