@@ -1,7 +1,5 @@
 import pickle
 
-
-
 def load_checkpoint(name):
 
     checkpoints = []

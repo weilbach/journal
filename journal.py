@@ -14,17 +14,18 @@ from dayrank import create_csv
 dictionary = {}
 
 
-# summer15 = Journal()
-summer18 = Journal()
+summer15 = Journal()
+# summer18 = Journal()
 
-# summer15.assemble_dictionary('summer15.txt')
-summer18.assemble_dictionary('summer2018.txt')
-summer18.assemble_fragments('summer2018.txt')
+summer15.assemble_dictionary('summer15.txt')
+summer15.assemble_fragments('summer15.txt')
+# summer18.assemble_dictionary('summer2018.txt')
+# summer18.assemble_fragments('summer2018.txt')
 
 # summer15.assemble_names()
 # summer18.assemble_names()
 
-create_csv(summer18.fragments, summer18.name)
+create_csv(summer15.fragments, summer15.name)
 
 # names(summer15)
 # foods(summer18)
