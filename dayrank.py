@@ -8,20 +8,48 @@ from sklearn import metrics
 from matplotlib import pyplot as plt
 from mlhelper import *
 
-def create_csv(fragments, name):
+def create_csv(fragments, name, labels=None):
+    """
+    creates a csv file out of fragments of a part of a day
+    the file is created with the name that is passed in
+    as of right now it creates .txt files instead of .csv
+    """
 
     #okay i think this fully works now
-
     f = open(name, 'w+')
+    f.write('date,text,label' + '\n')
     for key, lists in fragments.items():
         for frag in lists:
             frag = remove_punctuation(frag)
             frag = frag.strip()
             if len(frag) < 5: #this is sort of an imperfect fix 
                 continue
-            f.write(key + ',' + frag + ',' + '1' + '\n')
+            f.write(key + ',' + frag + ',' + '\n')
     
     f.close()
+
+def add_labels(file, labels):
+    """
+    this function adds labels to files that aren't labeled
+    the labels aren't necessarily correct, they are just what
+    the function has been passed
+    """
+    #for reference, this function works
+
+    f = open(file, 'r+')
+    lines = []
+    for i, line in enumerate(f):
+        if i != 0:
+            lines.append(line)
+    f.close()
+
+    f = open(file, 'w+')
+    f.write('date,text,label' + '\n')
+    for i in range(0, len(lines)):
+        f.write(lines[i].strip('\n') + str(labels[i]) + '\n')
+    
+    f.close()
+
 
 
 def select_classifier(penalty='l2', c=1.0, degree=1, r=0.0, class_weight='balanced'):
@@ -255,23 +283,6 @@ def performance(y_true, y_pred, metric="accuracy"):
         score = tn / (tn + fp)
         return score
    
-# def question2():
-
-#      #start question 2
-#     X_train, Y_train, X_test, Y_test, dictionary_binary = get_split_binary_data()
-
-#     nonzero_count = 0
-#     total_count = 0
-#     for i in X_train:
-#         for j in i:
-#             if j == 1:
-#                 nonzero_count += 1
-#         total_count += 1
-    
-#     print('amount of nonzeros is ' + str(nonzero_count / total_count))
-
-#     total_size = len(X_train[0])
-#     print('size of feature matrix is ' + str(total_size))
 
 
 def question5():
@@ -309,40 +320,21 @@ def question5():
     # #given the words in the tweet, what's good with the amount of retweets 
 
     # generate_challenge_labels(y_pred, uniqname)
+    return y_pred
 
 
 
 def main():
 
-    df = pd.read_csv('summer2018labels.csv', usecols=['date','text','label'])
-    df = pd.DataFrame(df)
-    my_dict = extract_dictionary(df)
-    generate_feature_matrix(df, my_dict)
-    
-    #question 2
-    # question2()
+    # df = pd.read_csv('summer2018labels.csv', usecols=['date','text','label'])
+    # df = pd.DataFrame(df)
+    # my_dict = extract_dictionary(df)
+    # generate_feature_matrix(df, my_dict)
 
-    #question 3...this one is huge
-    # question3()
+    summer15_pred = question5()
+    add_labels('summer15.txt', summer15_pred)
 
-    # question3e()
 
-    # question3f()
-
-    # #start question 3.2
-    # question32()
-
-    # question34()
-
-    # question4()
-
-    # question42()
-
-    # question43()
-
-    # question44()
-
-    question5()
 
 
 if __name__ == '__main__':
