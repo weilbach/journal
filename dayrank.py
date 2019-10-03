@@ -159,10 +159,6 @@ def plot_weight(X,y,penalty,metric,C_range):
     print("Plotting the number of nonzero entries of the parameter vector as a function of C")
     norm0 = []
 
-    # TODO: Implement this part of the function
-    #Here, for each value of c in C_range, you should
-    #append to norm0 the L0-norm of the theta vector that is learned
-    #when fitting an L2- or L1-penalty, degree=1 SVM to the data (X, y)
 
     for C in C_range:
         clf = select_classifier(c=C, penalty=penalty)
