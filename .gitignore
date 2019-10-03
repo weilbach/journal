@@ -7,3 +7,4 @@ bin
 env
 __pycache__
 explicit.py
+notes.txt
